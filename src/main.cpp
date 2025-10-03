@@ -1,12 +1,6 @@
 #include "raylib.h"
 #include <string>
 
-#if defined(_WIN32) || defined(__APPLE__) // windows or apple
-    #define GLSL_VERSION 330
-#else // anything else
-    #define GLSL_VERSION 100
-#endif
-
 int main()
 {
     // window
@@ -18,7 +12,7 @@ int main()
     Texture2D texture = LoadTexture("resources/space.png"); // load texture
 
     // load shader file
-    std::string shaderPath = "resources/shaders/glsl" + std::to_string(GLSL_VERSION) + "/wave.fs";
+    std::string shaderPath = "resources/shaders/glsl330/wave.fs";
     Shader shader = LoadShader(nullptr, shaderPath.c_str());
 
     // get shader variable locations
